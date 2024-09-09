@@ -6,6 +6,7 @@
 
 typedef struct Vertex_t
 {
+    float textureCoordinates[2];
     float position[2];
     float color[4];
 } Vertex;

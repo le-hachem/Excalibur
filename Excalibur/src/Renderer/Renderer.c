@@ -77,10 +77,11 @@ void ClearRenderer()
     InitializeVertexBufferFromData(&vertexBuffer, renderData->vertices, arrlen(renderData->vertices));
     InitializeIndexBuffer(&indexBuffer, renderData->indices, arrlen(renderData->indices));
 
-    VertexBufferLayoutElement layouts[2] = {{2, false}, 
-                                            {4, false}};
+    VertexBufferLayoutElement layouts[3] = {{2, false}, 
+                                            {4, false},
+                                            {2, false}};
 
-    SetVertexArrayLayout(&vertexArray, layouts, 2);
+    SetVertexArrayLayout(&vertexArray, layouts, 3);
     PushBuffersToVertexArray(&vertexArray, vertexBuffer, indexBuffer);
 
     SetOrthographicCameraShader(&s_Renderer->camera, &s_Renderer->shader);
@@ -107,10 +108,10 @@ void DrawQuad(const Rect bounds, const Vec4 color)
 
     Vertex vertices[4] = 
     {
-        (Vertex) { .position = { bounds.x,          bounds.y},          .color = {color.r, color.g, color.b, color.a}},
-        (Vertex) { .position = { bounds.x,          bounds.y-bounds.h}, .color = {color.r, color.g, color.b, color.a}},
-        (Vertex) { .position = { bounds.x+bounds.w, bounds.y-bounds.h}, .color = {color.r, color.g, color.b, color.a}},
-        (Vertex) { .position = { bounds.x+bounds.w, bounds.y},          .color = {color.r, color.g, color.b, color.a}},
+        (Vertex) { .position = { bounds.x,          bounds.y},          .color = {color.r, color.g, color.b, color.a}, .textureCoordinates = {1.0f, 1.0f}},
+        (Vertex) { .position = { bounds.x,          bounds.y-bounds.h}, .color = {color.r, color.g, color.b, color.a}, .textureCoordinates = {1.0f, 0.0f}},
+        (Vertex) { .position = { bounds.x+bounds.w, bounds.y-bounds.h}, .color = {color.r, color.g, color.b, color.a}, .textureCoordinates = {0.0f, 0.0f}},
+        (Vertex) { .position = { bounds.x+bounds.w, bounds.y},          .color = {color.r, color.g, color.b, color.a}, .textureCoordinates = {0.0f, 1.0f}},
     };
 
     uint32_t indices[6] = 
