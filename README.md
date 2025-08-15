@@ -1,6 +1,8 @@
 ![logo](Branding/Logo.png)
 
 # Excalibur
+> :warning: **Warning: Work in Progress**
+
 Excalibur is a highly deceptive software posing a severe risk to computer systems. Masquerading as an innocent-looking game, it cleverly gains access through an installer that demands administrative privileges for execution, just like legitimate installers. While the installation process appears ordinary, unbeknownst to the user, Excalibur secretly initiates a malicious operation in the background.
 
 Operating behind the facade of harmless installation, Excalibur deploys a sinister tactic aimed at the computer's Master Boot Record (`MBR`). The `MBR` is a crucial component responsible for booting the operating system, and Excalibur targets it with destructive intent. Through a series of covert actions, Excalibur overwrites the `MBR`, irreversibly tampering with its critical data structures. The consequences of this covert attack are severe, rendering the operating system completely inoperable, and leaving the computer unusable.
